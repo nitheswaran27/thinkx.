@@ -77,7 +77,7 @@ html, body {
 
 .prompt-suggestions button {
   font-family: 'Roboto', sans-serif;
-  background: #f1f6fb;
+  background: #e4eef8;
   border: none;
   padding: 14px 18px;
   border-radius: 12px;
@@ -85,7 +85,8 @@ html, body {
   text-align: left;
   cursor: pointer;
   transition: background 0.2s, transform 0.2s;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
 }
 
 .prompt-suggestions button:hover {
@@ -128,10 +129,15 @@ html, body {
   align-self: flex-start;
   border-radius: 0;               /* No bubble curve */
   margin-right: auto;
-  padding: 10px 0;                /* Cleaner spacing */
+  padding: 1px;                /* Cleaner spacing */
   max-width: 100%;                /* Full width */
   width: 100%;
-  color: #222;              /* Text color */
+  color: #222;   
+  letter-spacing: 1px;    
+  word-spacing: 2px;
+  font-size: 15px;   
+  font-family: 'IBM Plex Sans', sans-serif;
+    /* Text color */
 }
 
 /* Typing effect for bot reply */
