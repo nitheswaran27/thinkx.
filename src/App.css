@@ -1,0 +1,240 @@
+/* 🔹 Top Bar */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: white;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1002;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+/* 🔹 Menu Button (only shown on mobile) */
+.menu-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 8px;
+  margin-left: -17px;
+}
+
+/* 🔹 App Container */
+.app-container {
+  display: flex;
+  height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* 🔹 Sidebar */
+.sidebar {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 260px;
+  height: calc(100vh - 60px);
+  background: #fff;
+  border-right: 1px solid #eee;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.04);
+  overflow-y: auto;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: 1001;
+}
+
+/* Hide sidebar on mobile when closed */
+.sidebar.closed {
+  transform: translateX(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Show sidebar on mobile when open */
+.sidebar.open {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* 🔹 Main Content */
+.main-content {
+  flex-grow: 1;
+  margin-top: 60px;
+  transition: margin-left 0.3s ease;
+}
+
+.main-content.with-sidebar {
+  margin-left: 260px;
+}
+
+/* 🔹 Chat Input Row */
+.chat-input-row {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px 24px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
+  z-index: 100;
+}
+
+.main-content.with-sidebar .chat-input-row {
+  left: 260px;
+}
+
+/* 🔹 Sidebar Inner Content */
+.sidebar .sidebar-section {
+  padding: 20px;
+}
+
+.sidebar .logo {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+  color: #111;
+}
+
+.sidebar h4 {
+  margin: 16px 0 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  padding: 8px 0;
+  font-size: 14px;
+  color: #444;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.sidebar ul li:hover {
+  background-color: #f5f5f5;
+  border-radius: 6px;
+  padding-left: 6px;
+}
+
+.sidebar .clear-btn {
+  margin-top: 16px;
+  font-size: 13px;
+  background: #302c2c;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s;
+}
+.sidebar .clear-btn:hover {
+  transform: scale(1.08);
+}
+
+.clear-btn .material-symbols-outlined {
+  vertical-align: middle;
+  font-size: 18px;
+  margin-right: 6px;
+}
+
+/* 🔹 About Section */
+.about-section {
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+  color: #333;
+}
+
+.about-section summary {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 15px;
+  color: #111;
+  margin-bottom: 6px;
+}
+
+.about-section details[open] summary {
+  color: #0057ff;
+}
+
+.about-section p {
+  margin-top: 8px;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* 📱 Mobile Styles */
+@media (max-width: 768px) {
+  .prompt-suggestions {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    background: white; /* ✅ Add your actual background here */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE/Edge */
+  }
+  
+  .prompt-suggestions::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
+  
+ 
+  
+  .sidebar {
+    width: 180px;
+  }
+  .main-content,
+  .chat-input-row {
+    margin-left: 0 !important;
+    left: 0 !important;
+  }
+}
+
+/* 💻 Desktop & Laptop Styles */
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  .sidebar {
+    transform: translateX(0) !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  .main-content {
+    margin-left: 260px;
+  }
+  .prompt-suggestions {
+    padding-left: 100px; /* adjusts for sidebar width */
+    padding-right: 20px;
+    box-sizing: border-box;
+    gap: 30px; /* 🟢 This adds space between buttons */
+    justify-content: flex-start;
+
+  }
+  .prompt-suggestions button {
+    font-size: 16px;
+    padding: 16px 24px;
+    min-width: 170px;      /* 🟢 Grows with content */
+    flex:1 1 auto;
+  
+  }
+
+  .chat-input-row {
+    left: 260px; /* aligns with sidebar */
+    width: calc(100% - 260px);
+  }
+}

@@ -1,0 +1,268 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.app-container {
+  display: flex;
+  height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.main-content {
+  flex-grow: 1;
+  margin-left: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.chat-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 12px;
+  box-sizing: border-box;
+}
+
+/* ✅ Welcome Message Center */
+.center-welcome-message {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;     /* horizontally center */
+  justify-content: center; /* vertically center */
+  text-align: center;
+  padding: 90px 0px;
+  color: #333;
+}
+
+.center-welcome-message h2 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #222; /* or any color you want */
+}
+
+.center-welcome-message p {
+  font-size: 18px;
+  color: #666;
+}
+
+
+/* 🔹 Prompt Suggestions */
+.prompt-suggestions {
+  position: fixed;
+  bottom: 95px;
+  left: 0;
+  right: 0;
+  max-width: 420px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  padding: 16px 16px;
+  z-index: 999;
+}
+
+.prompt-suggestions button {
+  font-family: 'Roboto', sans-serif;
+  background: #f1f6fb;
+  border: none;
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-size: 15px;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.prompt-suggestions button:hover {
+  background: #e0e0e0;
+  transform: translateY(-2px);
+}
+
+/* 🔹 Chat Window */
+.chat-window {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  overflow-y: auto;
+  flex-grow: 1;
+  overflow-x: hidden;
+  
+}
+
+/* 🔹 Messages */
+.msg-bubble {
+  max-width: 80%;
+  padding: 10px 14px;
+  margin: 8px;
+  border-radius: 12px;
+  line-height: 1.4;
+  word-wrap: break-word;
+  display: inline-block;
+  overflow-x: hidden;
+}
+
+.msg-bubble.user {
+  background-color: #f1f6fb;
+  align-self: flex-end;
+  border-top-right-radius: 0;
+  margin-left: auto;
+}
+
+.msg-bubble.bot {
+  background-color: transparent; /* No background */
+  align-self: flex-start;
+  border-radius: 0;               /* No bubble curve */
+  margin-right: auto;
+  padding: 10px 0;                /* Cleaner spacing */
+  max-width: 100%;                /* Full width */
+  width: 100%;
+  color: #222;              /* Text color */
+}
+
+/* Typing effect for bot reply */
+.msg-bubble.bot.typing span {
+  display: inline-block;
+  overflow: hidden;
+  
+  border-right: 2px solid #999;
+  animation: typing 1.5s steps(20, end) infinite;
+}
+
+@keyframes typing {
+  0% { width: 0 }
+  100% { width: 100% }
+}
+
+
+/* 🔹 Input */
+.chat-input-row {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px 12px;
+  position: relative;
+}
+
+.chat-input-row input {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 999px;
+  padding: 12px 45px 12px 16px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: none;
+}
+
+/* 🔹 Send Button */
+.send-btn {
+  position: absolute;
+  right: 34px;
+  bottom: 24px;
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #007bff;
+}
+
+/* 🔹 Link styling */
+.msg-bubble a {
+  color: #007bff;
+}
+
+.msg-bubble a:hover {
+  text-decoration: none;
+}
+
+/* 🔹 Mobile */
+@media (max-width: 768px) {
+  .chat-container {
+    padding: 16px 16px 100px;
+  }
+
+  .chat-input-row {
+    padding: 12px 16px;
+  }
+
+  .chat-input-row input {
+    font-size: 15px;
+  }
+
+  .send-btn {
+    right: 24px;
+    bottom: 20px;
+    font-size: 20px;
+  }
+}
+.typing-effect {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.typing-text {
+  font-family: monospace;
+  font-size: 16px;
+  color: #333;
+}
+
+.typing-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #bbb;
+  animation: blink 1.4s infinite both;
+}
+
+.typing-dot:nth-child(1) {
+  animation-delay: 0s;
+}
+.typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes blink {
+  0%, 80%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+.send-btn {
+  position: absolute;
+  right: 26px;
+  bottom: -2px;
+  transform: translateY(-50%);
+  background: white;
+  color: #007bff;
+  font-size: 18px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 35px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  white-space: nowrap; /* prevents text from wrapping */
+  height: 40px;
+  width: 47px;
+}
