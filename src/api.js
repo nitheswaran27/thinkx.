@@ -1,6 +1,6 @@
 
 
-const API_KEY = "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";
+const API_KEY = "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";
 
 export async function generateGeminiReply(userInput) {
   try {
