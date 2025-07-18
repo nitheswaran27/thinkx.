@@ -73,24 +73,26 @@ html, body {
   gap: 12px;
   padding: 16px 16px;
   z-index: 999;
-}
-
+  }
+  
 .prompt-suggestions button {
   font-family: 'Roboto', sans-serif;
-  background: #e4eef8;
+  background: #1d1d1ef5;
+  color: white;
   border: none;
   padding: 14px 18px;
   border-radius: 12px;
   font-size: 15px;
   text-align: left;
   cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: background 0.3s, transform 0.2s;
+  box-shadow: -2px 3px 9px #6b8fb6;
 
 }
 
 .prompt-suggestions button:hover {
-  background: #e0e0e0;
+  background: #6b8fb6;
+  color: white;
   transform: translateY(-2px);
 }
 
@@ -180,9 +182,8 @@ html, body {
   bottom: 24px;
   background: transparent;
   border: none;
-  font-size: 18px;
+  font-size: 20px;
   cursor: pointer;
-  color: #007bff;
 }
 
 /* 🔹 Link styling */

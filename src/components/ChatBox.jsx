@@ -45,9 +45,10 @@ const ChatBox = ({ input, setInput, messages, setMessages }) => {
   const bottomRef = useRef(null);
 
   const promptSuggestions = [
-    "What is ThinkX",
-    "Who developed ThinkX",
     "Give me a productivity tip",
+    "Give me a motivational quote",
+    "Who developed ThinkX",
+   
   ];
 
   useEffect(() => {
