@@ -9,7 +9,7 @@ export async function generateGeminiReply(userInput) {
       headers: {
         Authorization: `Bearer ${API_KEY}`,
         "Content-Type": "application/json",
-        "HTTP-Referer": "http://localhost:3000",
+        "HTTP-Referer": "https://thinkx.vercel.app",
         "X-Title": "ThinkX"
       },
       body: JSON.stringify({
